@@ -435,8 +435,8 @@ const MarketMakersTable = () => {
   return (
     <div className={`relative overflow-hidden rounded-lg p-8 w-full transition-all duration-500 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-slate-800/80 via-slate-900/60 to-slate-800/90 border border-slate-700/50' 
-        : 'bg-gradient-to-br from-white/90 via-gray-50/80 to-white/95 border border-gray-200/60'
+        ? 'bg-dark-card border border-dark-border' 
+        : 'bg-light-card border border-light-border'
     }`}>
       {/* Enhanced background decoration */}
       <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-cyan-500/10 rounded-full blur-2xl animate-pulse"></div>
@@ -792,7 +792,7 @@ const MarketMakersTable = () => {
       
       {/* Pagination */}
       <div className="mt-6 flex items-center justify-between">
-        <div className={`text-xs transition-colors duration-300 ${
+        <div className={`text-xs transition-colors duration-300 pl-12 ${
           isDarkMode ? 'text-gray-500' : 'text-light-text-secondary'
         }`}>
           Showing {startIndex + 1} to {Math.min(endIndex, displayMarketMakers.length)} of {displayMarketMakers.length} market makers
