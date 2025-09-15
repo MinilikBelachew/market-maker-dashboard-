@@ -141,7 +141,7 @@ const Alerts = () => {
           scrollbar-width: none;
         }
       `}</style>
-      <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 transition-colors duration-300 ${
+      <div className={`relative overflow-hidden border rounded-xl shadow-sm p-4 transition-colors duration-300 ${
         isDarkMode 
           ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
           : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'

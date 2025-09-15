@@ -181,11 +181,11 @@ const BottomAlerts = () => {
           return (
             <div
               key={insight.id}
-              className={`group relative overflow-hidden bg-gradient-to-br ${config.bgColor} border ${config.borderColor} border-l-4 rounded-xl p-4 hover:shadow-lg hover:shadow-accent-purple/20 transition-all duration-300 hover:-translate-y-1`}
+              className={`group relative overflow-hidden bg-gradient-to-br ${config.bgColor} border ${config.borderColor} border-l-4 rounded-xl p-4 transition-all duration-300 hover:-translate-y-1`}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
-                  <div className={`w-8 h-8 rounded-full ${config.bgColor} ${config.borderColor} border flex items-center justify-center shadow-lg`}>
+                  <div className={`w-8 h-8 rounded-full ${config.bgColor} ${config.borderColor} border flex items-center justify-center`}>
                     <config.icon className={`w-4 h-4 ${config.iconColor}`} />
                   </div>
                   <div>
