@@ -37,23 +37,23 @@ const Header = () => {
   return (
     <header className={`relative border-b transition-all duration-500 ${
       isDarkMode 
-        ? 'bg-gradient-to-r from-dark-card via-dark-bg to-dark-card border-dark-border/50 backdrop-blur-xl' 
-        : 'bg-gradient-to-r from-light-card via-light-bg to-light-card border-light-border/50 backdrop-blur-xl'
+        ? 'bg-dark-card border-dark-border/50 backdrop-blur-xl' 
+        : 'bg-light-card border-light-border/50 backdrop-blur-xl'
     }`}>
     
 
-      <div className="w-full px-4 py-2 relative z-10">
+      <div className="w-full px-8 py-2 relative z-10">
         <div className="flex items-center justify-between">
           {/* Logo/Brand Section */}
           <div className="flex items-center">
             <div className="font-bold text-xl sm:text-2xl">
               <span className="text-black dark:text-white">Honest</span>
-              <span className="text-blue-600">MM.</span>
+              <span className="text-primary">MM.</span>
             </div>
           </div>
           
           {/* Desktop Search Bar */}
-          <div className="hidden md:flex flex-1 max-w-md mx-6">
+          {/* <div className="hidden md:flex flex-1 max-w-md mx-6">
             <div className="relative w-full">
               <Search className={`absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 ${
                 isDarkMode ? 'text-gray-400' : 'text-gray-500'
@@ -61,7 +61,7 @@ const Header = () => {
               <input
                 type="text"
                 placeholder="Search..."
-                className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors ${
+                className={`w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors ${
                   isDarkMode 
                     ? 'bg-gray-800 border-gray-700 text-white placeholder-gray-400' 
                     : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500'
@@ -69,7 +69,7 @@ const Header = () => {
               />
             </div>
           </div> 
-          
+           */}
           {/* Right Side Actions */}
           <div className="flex items-center space-x-2">
             {/* Mobile Search Button */}
@@ -98,7 +98,7 @@ const Header = () => {
               {isDarkMode ? (
                 <Sun className="h-5 w-5 group-hover:text-yellow-400 group-hover:scale-110 transition-all duration-300" />
               ) : (
-                <Moon className="h-5 w-5 group-hover:text-blue-400 group-hover:scale-110 transition-all duration-300" />
+                <Moon className="h-5 w-5 group-hover:text-primary group-hover:scale-110 transition-all duration-300" />
               )}
             </button>
 

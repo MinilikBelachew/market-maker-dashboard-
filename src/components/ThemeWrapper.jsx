@@ -7,8 +7,8 @@ const ThemeWrapper = ({ children }) => {
   return (
     <div className={`min-h-screen transition-colors duration-300 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-dark-bg via-dark-card to-dark-bg' 
-        : 'bg-gradient-to-br from-light-bg via-light-card to-light-bg'
+        ? 'bg-dark-bg' 
+        : 'bg-light-bg'
     }`}>
       {children}
     </div>

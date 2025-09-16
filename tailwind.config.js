@@ -8,13 +8,15 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Dark theme colors
-        'dark-bg': '#1A1A2E',
-        'dark-card': '#16213E',
-        'dark-border': '#0F3460',
+        // Brand primary color
+        primary: '#003CD3',
+        // Dark theme colors (use gray-900 scale)
+        'dark-bg': '#111827',
+        'dark-card': '#111827',
+        'dark-border': '#1F2937',
         
         // Light theme colors
-        'light-bg': '#F8FAFC',
+        'light-bg': '#FCFDFE',
         'light-card': '#FFFFFF',
         'light-border': '#E2E8F0',
         'light-text': '#1E293B',

@@ -87,13 +87,13 @@ const RecentTrades = () => {
   }
 
   return (
-    <div className="relative overflow-hidden bg-gradient-to-br from-dark-card to-dark-bg border border-dark-border rounded-2xl shadow-xl p-6">
+    <div className="relative overflow-hidden bg-dark-card border border-dark-border rounded-2xl shadow-xl p-6">
       {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-accent-purple/10 to-accent-blue/10 rounded-full blur-2xl"></div>
+      
       
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-accent-blue to-accent-purple bg-clip-text text-transparent">
+          <h2 className="text-2xl font-bold text-white">
             Recent Trades
           </h2>
           <div className="flex items-center space-x-2 text-sm text-gray-400">
@@ -106,7 +106,7 @@ const RecentTrades = () => {
           {trades.map((trade) => (
             <div
               key={trade.id}
-              className="group flex items-center justify-between p-3 bg-gradient-to-r from-dark-border/20 to-dark-border/5 rounded-xl border border-dark-border/30 hover:border-accent-purple/30 transition-all duration-300 hover:shadow-lg hover:shadow-accent-purple/10"
+              className="group flex items-center justify-between p-3 bg-dark-border/20 rounded-xl border border-dark-border/30 hover:border-primary/30 transition-all duration-300"
             >
               <div className="flex items-center space-x-3">
                 {/* Trade Side Icon */}

@@ -19,7 +19,7 @@ const MarketMakersTable = () => {
     error, 
     refreshData, 
     toggleUpdates 
-  } = useMarketData(3000) // Update every 3 seconds (realistic for market makers)
+  } = useMarketData(5000) // Update every 3 seconds (realistic for market makers)
 
   // Use market makers data or fallback to empty array
   const displayMarketMakers = marketMakers.length > 0 ? marketMakers : []
@@ -32,17 +32,16 @@ const MarketMakersTable = () => {
           ? 'bg-gradient-to-br from-slate-800/80 via-slate-900/60 to-slate-800/90 border border-slate-700/50' 
           : 'bg-gradient-to-br from-white/90 via-gray-50/80 to-white/95 border border-gray-200/60'
       }`}>
-        {/* Animated background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-cyan-500/5 animate-pulse"></div>
+        
         
         <div className="relative flex items-center justify-center h-64">
           <div className="flex flex-col items-center space-y-6">
             <div className="relative">
-              <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl animate-pulse"></div>
+              
               <div className={`relative p-4 rounded-full ${
                 isDarkMode ? 'bg-slate-700/50' : 'bg-white/80'
-              } backdrop-blur-sm border border-blue-500/20`}>
-                <RefreshCw className="w-8 h-8 text-blue-400 animate-spin" />
+              } backdrop-blur-sm border border-primary/20`}>
+                <RefreshCw className="w-8 h-8 text-primary animate-spin" />
               </div>
             </div>
             <div className="text-center space-y-2">
@@ -141,12 +140,12 @@ const MarketMakersTable = () => {
               key={index}
               className={`w-1 h-3 rounded-sm transition-all duration-300 ${
                 active 
-                  ? 'bg-gradient-to-t from-green-400 to-green-600 animate-pulse' 
+                  ? 'bg-primary animate-pulse' 
                   : 'bg-gray-700'
               }`}
               style={{
                 animationDelay: `${index * 0.1}s`,
-                boxShadow: active ? '0 0 4px rgba(34, 197, 94, 0.6)' : 'none'
+                boxShadow: active ? '0 0 4px rgba(0, 60, 211, 0.6)' : 'none'
               }}
             />
           ))}
@@ -438,11 +437,9 @@ const MarketMakersTable = () => {
         ? 'bg-dark-card border border-dark-border' 
         : 'bg-light-card border border-light-border'
     }`}>
-      {/* Enhanced background decoration */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-500/10 via-purple-500/5 to-cyan-500/10 rounded-full blur-2xl animate-pulse"></div>
-      <div className="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-emerald-500/8 to-blue-500/8 rounded-full blur-xl"></div>
       
-      <div className="relative z-10">
+      
+      <div className="relative z-10 pl-2 sm:pl-0">
         <div className="flex items-center justify-between mb-6">
           <h2 className={`text-2xl font-bold transition-colors duration-300 ${
             isDarkMode ? 'text-white' : 'text-light-text'
@@ -496,12 +493,13 @@ const MarketMakersTable = () => {
             ? 'border-slate-700/40 bg-slate-800/20' 
             : 'border-gray-300/40 bg-white/40'
         }`}>
-        <table className="w-full table-fixed">
+        <div className="w-full overflow-x-auto md:overflow-x-visible pl-2 sm:pl-0">
+        <table className="w-full table-fixed min-w-[800px] md:min-w-0">
           <thead>
             <tr className={`border-b transition-all duration-300 ${
               isDarkMode 
-                ? 'bg-gradient-to-r from-slate-800/60 via-slate-700/40 to-slate-800/60 border-slate-600/50' 
-                : 'bg-gradient-to-r from-gray-50/80 via-white/60 to-gray-50/80 border-gray-300/50'
+                ? 'bg-slate-800/60 border-slate-600/50' 
+                : 'bg-gray-50/80 border-gray-300/50'
             }`}>
               <th className={`w-12 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
@@ -512,28 +510,28 @@ const MarketMakersTable = () => {
               <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>Rating</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden sm:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>Tech</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden sm:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>Price</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden sm:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>DeFi</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden md:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
-              }`}>Comm</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              }`}>Comm...</th>
+              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden md:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
-              }`}>Rep</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              }`}>Reputation</th>
+              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden md:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>Balance</th>
               <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>Status</th>
-              <th className={`w-16 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-16 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden md:table-cell ${
                 isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
               }`}>Activity</th>
             </tr>
@@ -542,8 +540,8 @@ const MarketMakersTable = () => {
             {currentMarketMakers.map((maker, index) => (
               <tr key={maker.name} className={`group transition-all duration-500 border-b ${
                 isDarkMode 
-                  ? 'hover:bg-gradient-to-r hover:from-slate-800/40 hover:via-slate-700/20 hover:to-slate-800/40 border-slate-700/30 hover:border-slate-600/50' 
-                  : 'hover:bg-gradient-to-r hover:from-blue-50/40 hover:via-white/60 hover:to-blue-50/40 border-gray-200/30 hover:border-gray-300/50'
+                  ? 'hover:bg-slate-800/40 border-slate-700/30 hover:border-slate-600/50' 
+                  : 'hover:bg-primary/5 border-gray-200/30 hover:border-gray-300/50'
               }`}>
                 {/* Favorite Column */}
                 <td className="py-3 px-2 text-center">
@@ -565,8 +563,8 @@ const MarketMakersTable = () => {
                     onClick={() => setSelectedProfile(maker)}
                     className={`flex items-center space-x-3 p-2 rounded-xl transition-all duration-300 w-full text-left ${
                       isDarkMode 
-                        ? 'text-gray-300 hover:text-white hover:bg-gradient-to-r hover:from-slate-700/50 hover:to-slate-600/50' 
-                        : 'text-gray-700 hover:text-gray-900 hover:bg-gradient-to-r hover:from-blue-50/50 hover:to-indigo-50/50'
+                        ? 'text-gray-300 hover:text-white hover:bg-slate-700/50' 
+                        : 'text-gray-700 hover:text-gray-900 hover:bg-primary/10'
                     }`}
                   >
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
@@ -578,7 +576,7 @@ const MarketMakersTable = () => {
                     </div>
                     <div className="flex flex-col min-w-0 flex-1">
                       <span className={`font-semibold text-sm transition-colors duration-300 truncate ${
-                        isDarkMode ? 'text-white group-hover:text-blue-200' : 'text-gray-900 group-hover:text-blue-700'
+                        isDarkMode ? 'text-white group-hover:text-primary/80' : 'text-gray-900 group-hover:text-primary'
                       }`}>
                         {maker.name}
                       </span>
@@ -589,7 +587,7 @@ const MarketMakersTable = () => {
                       </span>
                     </div>
                     <Info className={`w-4 h-4 flex-shrink-0 transition-all duration-300 ${
-                      isDarkMode ? 'text-gray-500 group-hover:text-blue-400' : 'text-gray-400 group-hover:text-blue-500'
+                      isDarkMode ? 'text-gray-500 group-hover:text-primary' : 'text-gray-400 group-hover:text-primary'
                     }`} />
                   </button>
                 </td>
@@ -600,11 +598,15 @@ const MarketMakersTable = () => {
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-2 py-1 rounded-lg text-xs font-bold border transition-all duration-300 ${
-                      maker.grade === 'A+' || maker.grade === 'A' ? 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 text-green-300 border-green-500/40' :
-                      maker.grade === 'A-' || maker.grade === 'B+' ? 'bg-gradient-to-r from-blue-500/20 to-cyan-500/20 text-blue-300 border-blue-500/40' :
-                      maker.grade === 'B' || maker.grade === 'B-' ? 'bg-gradient-to-r from-yellow-500/20 to-amber-500/20 text-yellow-300 border-yellow-500/40' :
-                      maker.grade === 'C+' || maker.grade === 'C' ? 'bg-gradient-to-r from-orange-500/20 to-red-500/20 text-orange-300 border-orange-500/40' :
-                      'bg-gradient-to-r from-red-500/20 to-pink-500/20 text-red-300 border-red-500/40'
+                      maker.grade === 'A+' || maker.grade === 'A' ? 
+                        (isDarkMode ? 'bg-green-500/20 text-green-300 border-green-500/40' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.grade === 'A-' || maker.grade === 'B+' ? 
+                        (isDarkMode ? 'bg-blue-500/20 text-blue-300 border-blue-500/40' : 'bg-blue-100 text-blue-700 border-blue-300') :
+                      maker.grade === 'B' || maker.grade === 'B-' ? 
+                        (isDarkMode ? 'bg-yellow-500/20 text-yellow-300 border-yellow-500/40' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                      maker.grade === 'C+' || maker.grade === 'C' ? 
+                        (isDarkMode ? 'bg-orange-500/20 text-orange-300 border-orange-500/40' : 'bg-orange-100 text-orange-700 border-orange-400') :
+                        (isDarkMode ? 'bg-red-500/20 text-red-300 border-red-500/40' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {maker.grade}
                     </span>
@@ -618,14 +620,16 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Technology Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 hidden sm:table-cell ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-1.5 py-0.5 rounded text-xs font-medium border transition-all duration-300 ${
-                      maker.pillarScores?.technology >= 0.8 ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                      maker.pillarScores?.technology >= 0.6 ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                      'bg-red-500/10 text-red-400 border-red-500/20'
+                      maker.pillarScores?.technology >= 0.8 ? 
+                        (isDarkMode ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.pillarScores?.technology >= 0.6 ? 
+                        (isDarkMode ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                        (isDarkMode ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {maker.uptime}
                     </span>
@@ -643,14 +647,16 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Pricing Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 hidden sm:table-cell ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-1.5 py-0.5 rounded text-xs font-medium border transition-all duration-300 ${
-                      maker.pillarScores?.pricing >= 0.8 ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                      maker.pillarScores?.pricing >= 0.6 ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                      'bg-red-500/10 text-red-400 border-red-500/20'
+                      maker.pillarScores?.pricing >= 0.8 ? 
+                        (isDarkMode ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.pillarScores?.pricing >= 0.6 ? 
+                        (isDarkMode ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                        (isDarkMode ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {maker.bestSpreadToday}
                     </span>
@@ -668,14 +674,16 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* DeFi Integration Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 hidden sm:table-cell ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-1.5 py-0.5 rounded text-xs font-medium border transition-all duration-300 ${
-                      maker.pillarScores?.defi >= 0.8 ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                      maker.pillarScores?.defi >= 0.6 ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                      'bg-red-500/10 text-red-400 border-red-500/20'
+                      maker.pillarScores?.defi >= 0.8 ? 
+                        (isDarkMode ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.pillarScores?.defi >= 0.6 ? 
+                        (isDarkMode ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                        (isDarkMode ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {maker.pairs}
                     </span>
@@ -692,14 +700,16 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Communication Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 hidden md:table-cell ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-1.5 py-0.5 rounded text-xs font-medium border transition-all duration-300 ${
-                      maker.pillarScores?.communication >= 0.8 ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                      maker.pillarScores?.communication >= 0.6 ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                      'bg-red-500/10 text-red-400 border-red-500/20'
+                      maker.pillarScores?.communication >= 0.8 ? 
+                        (isDarkMode ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.pillarScores?.communication >= 0.6 ? 
+                        (isDarkMode ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                        (isDarkMode ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {(() => {
                         const executionSpeed = parseFloat(maker.executionSpeed)
@@ -722,14 +732,16 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Reputation Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 hidden md:table-cell ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-1.5 py-0.5 rounded text-xs font-medium border transition-all duration-300 ${
-                      maker.pillarScores?.reputation >= 0.8 ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                      maker.pillarScores?.reputation >= 0.6 ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                      'bg-red-500/10 text-red-400 border-red-500/20'
+                      maker.pillarScores?.reputation >= 0.8 ? 
+                        (isDarkMode ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.pillarScores?.reputation >= 0.6 ? 
+                        (isDarkMode ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                        (isDarkMode ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {(() => {
                         const established = parseInt(maker.profile.established)
@@ -749,14 +761,16 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Balance Sheet Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 hidden md:table-cell ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
                     <span className={`px-1.5 py-0.5 rounded text-xs font-medium border transition-all duration-300 ${
-                      maker.pillarScores?.balanceSheet >= 0.8 ? 'bg-green-500/10 text-green-400 border-green-500/20' :
-                      maker.pillarScores?.balanceSheet >= 0.6 ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' :
-                      'bg-red-500/10 text-red-400 border-red-500/20'
+                      maker.pillarScores?.balanceSheet >= 0.8 ? 
+                        (isDarkMode ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-green-100 text-green-700 border-green-300') :
+                      maker.pillarScores?.balanceSheet >= 0.6 ? 
+                        (isDarkMode ? 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20' : 'bg-yellow-100 text-yellow-700 border-yellow-400') :
+                        (isDarkMode ? 'bg-red-500/10 text-red-400 border-red-500/20' : 'bg-red-100 text-red-700 border-red-400')
                     }`}>
                       {maker.volumeCapacity}
                     </span>
@@ -780,20 +794,21 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Activity Column */}
-                <td className="py-3 px-2 text-center">
+                <td className="py-3 px-2 text-center hidden md:table-cell">
                   <ActivityIndicator activity={maker.activity} />
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        </div>
       </div>
       </div>
       
       {/* Pagination */}
       <div className="mt-6 flex items-center justify-between">
-        <div className={`text-xs transition-colors duration-300 pl-12 ${
-          isDarkMode ? 'text-gray-500' : 'text-light-text-secondary'
+        <div className={`text-xs transition-colors duration-300 pl-12 z-10 ${
+          isDarkMode ? 'text-gray-200' : 'text-gray-900'
         }`}>
           Showing {startIndex + 1} to {Math.min(endIndex, displayMarketMakers.length)} of {displayMarketMakers.length} market makers
         </div>
@@ -808,7 +823,7 @@ const MarketMakersTable = () => {
                 ? `cursor-not-allowed ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`
                 : isDarkMode 
                   ? 'text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 hover:scale-105 hover:shadow-lg'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:scale-105 hover:shadow-md'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-primary/10 hover:to-indigo-50 hover:scale-105 hover:shadow-md'
             }`}
           >
             <ChevronLeft className="w-4 h-4" />
@@ -823,11 +838,11 @@ const MarketMakersTable = () => {
                 className={`px-3 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
                   currentPage === page
                     ? isDarkMode 
-                    ? 'bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-600/30'
-                      : 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/30'
+                    ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                      : 'bg-primary text-white shadow-lg shadow-primary/30'
                     : isDarkMode
                       ? 'text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 hover:shadow-md'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:shadow-md'
+                      : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-primary/10 hover:to-indigo-50 hover:shadow-md'
                 }`}
               >
                 {page}
@@ -844,7 +859,7 @@ const MarketMakersTable = () => {
                 ? `cursor-not-allowed ${isDarkMode ? 'text-gray-600' : 'text-gray-400'}`
                 : isDarkMode 
                   ? 'text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 hover:scale-105 hover:shadow-lg'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-blue-50 hover:to-indigo-50 hover:scale-105 hover:shadow-md'
+                  : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-primary/10 hover:to-indigo-50 hover:scale-105 hover:shadow-md'
             }`}
           >
             <ChevronRight className="w-4 h-4" />

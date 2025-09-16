@@ -89,9 +89,6 @@ const MetricCards = () => {
           {/* Thin bluish glow border */}
           <div className="absolute inset-0 rounded-xl border border-blue-500/20 group-hover:border-blue-500/40 transition-all duration-300"></div>
           
-          {/* Gradient border effect */}
-          <div className={`absolute inset-0 rounded-xl bg-gradient-to-r ${metric.borderGradient} opacity-20 blur-sm -z-10`}></div>
-          
           {/* Content */}
           <div className="relative z-10">
             <div className="flex items-center justify-between mb-2">

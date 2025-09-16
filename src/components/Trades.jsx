@@ -10,22 +10,22 @@ const Trades = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedMaker, setSelectedMaker] = useState(null)
 
-  // Helper function to get pillar color based on score
+  // Helper function to get pillar color based on score (brand primary shades)
   const getPillarColor = (score) => {
-    if (score >= 0.9) return 'text-green-400'
-    if (score >= 0.8) return 'text-green-300'
-    if (score >= 0.7) return 'text-yellow-400'
-    if (score >= 0.6) return 'text-orange-400'
-    return 'text-red-400'
+    if (score >= 0.9) return 'text-primary'
+    if (score >= 0.8) return 'text-primary/90'
+    if (score >= 0.7) return 'text-primary/80'
+    if (score >= 0.6) return 'text-primary/70'
+    return 'text-primary/60'
   }
 
-  // Helper function to get progress bar color
+  // Helper function to get progress bar color (brand primary shades)
   const getProgressColor = (score) => {
-    if (score >= 0.9) return 'bg-green-400'
-    if (score >= 0.8) return 'bg-green-300'
-    if (score >= 0.7) return 'bg-yellow-400'
-    if (score >= 0.6) return 'bg-orange-400'
-    return 'bg-red-400'
+    if (score >= 0.9) return 'bg-primary'
+    if (score >= 0.8) return 'bg-primary/90'
+    if (score >= 0.7) return 'bg-primary/80'
+    if (score >= 0.6) return 'bg-primary/70'
+    return 'bg-primary/60'
   }
 
   // Helper function to get icon component
@@ -70,7 +70,7 @@ const Trades = () => {
   const pillarData = currentMakerData.pillarScores ? [
     { name: 'Reputation', icon: 'Shield', score: currentMakerData.pillarScores.reputation },
     { name: 'Balance Sheet', icon: 'DollarSign', score: currentMakerData.pillarScores.balanceSheet },
-    { name: 'Communication', icon: 'MessageSquare', score: currentMakerData.pillarScores.communication },
+    { name: 'Comm...', icon: 'MessageSquare', score: currentMakerData.pillarScores.communication },
     { name: 'Pricing', icon: 'Target', score: currentMakerData.pillarScores.pricing },
     { name: 'Technology', icon: 'Cpu', score: currentMakerData.pillarScores.technology },
     { name: 'DeFi Integration', icon: 'Link', score: currentMakerData.pillarScores.defi }
@@ -81,8 +81,8 @@ const Trades = () => {
     return (
       <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         <div className="flex items-center justify-center h-48">
           <RefreshCw className="w-8 h-8 text-accent-blue animate-spin" />
@@ -96,8 +96,8 @@ const Trades = () => {
     return (
       <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         <div className="flex items-center justify-center h-48">
           <div className="text-center">
@@ -114,11 +114,11 @@ const Trades = () => {
   return (
     <div className={`relative overflow-hidden border rounded-xl shadow-sm p-4 transition-colors duration-300 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-        : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+        ? 'bg-dark-card border-dark-border' 
+        : 'bg-light-card border-light-border'
     }`}>
       {/* Minimal background decoration */}
-      <div className="absolute top-0 right-0 w-12 h-12 bg-accent-pink/5 rounded-full blur-lg"></div>
+      
       
       <div className="relative z-10">
         <div className="mb-4">
@@ -129,7 +129,7 @@ const Trades = () => {
             <div className={`flex items-center space-x-1 text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>
-              <Activity className="w-3 h-3 text-blue-400" />
+              <Activity className="w-3 h-3 text-primary" />
               <span>Live Scores</span>
             </div>
           </div>

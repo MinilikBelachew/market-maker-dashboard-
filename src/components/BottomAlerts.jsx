@@ -96,30 +96,13 @@ const BottomAlerts = () => {
 
   // Get insight configuration
   const getInsightConfig = (type) => {
-    const configs = {
-      success: {
-        icon: Award,
-        bgColor: 'bg-green-500/10',
-        borderColor: 'border-green-500/30',
-        textColor: 'text-green-400',
-        iconColor: 'text-green-500'
-      },
-      info: {
-        icon: TrendingUp,
-        bgColor: 'bg-blue-500/10',
-        borderColor: 'border-blue-500/30',
-        textColor: 'text-blue-400',
-        iconColor: 'text-blue-500'
-      },
-      warning: {
-        icon: Star,
-        bgColor: 'bg-orange-500/10',
-        borderColor: 'border-orange-500/30',
-        textColor: 'text-orange-400',
-        iconColor: 'text-orange-500'
-      }
+    const common = {
+      textColor: 'text-primary/80',
+      iconColor: 'text-primary/90'
     }
-    return configs[type] || configs.info
+    if (type === 'success') return { icon: Award, ...common }
+    if (type === 'warning') return { icon: Star, ...common }
+    return { icon: TrendingUp, ...common }
   }
 
   // Handle loading state
@@ -181,11 +164,13 @@ const BottomAlerts = () => {
           return (
             <div
               key={insight.id}
-              className={`group relative overflow-hidden bg-gradient-to-br ${config.bgColor} border ${config.borderColor} border-l-4 rounded-xl p-4 transition-all duration-300`}
+              className={`group relative overflow-hidden rounded-xl p-4 transition-all duration-300 border-l-2 ${
+                isDarkMode ? 'bg-dark-card border border-dark-border' : 'bg-light-card border border-light-border'
+              }`}
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
-                  <div className={`w-8 h-8 rounded-full ${config.bgColor} ${config.borderColor} border flex items-center justify-center`}>
+                  <div className={`w-8 h-8 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center`}>
                     <config.icon className={`w-4 h-4 ${config.iconColor}`} />
                   </div>
                   <div>
@@ -248,9 +233,7 @@ const BottomAlerts = () => {
               </div>
               
               {/* Hover effect */}
-              <div className={`absolute inset-0 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
-                isDarkMode ? 'from-white/5 to-transparent' : 'from-black/5 to-transparent'
-              }`}></div>
+              
             </div>
           )
         })}

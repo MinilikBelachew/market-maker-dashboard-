@@ -13,8 +13,8 @@ const LiveChart = () => {
     return (
       <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 w-full transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         <div className="flex items-center justify-center h-48">
           <RefreshCw className="w-8 h-8 text-accent-blue animate-spin" />
@@ -28,8 +28,8 @@ const LiveChart = () => {
     return (
       <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 w-full transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         <div className="flex items-center justify-center h-48">
           <div className="text-center">
@@ -46,27 +46,27 @@ const LiveChart = () => {
     {
       name: 'A+',
       count: chart.aPlusCount || 295,
-      color: '#10B981'
+      color: '#003CD3'
     },
     {
       name: 'A',
       count: chart.aCount || 442,
-      color: '#34D399'
+      color: '#003CD3'
     },
     {
       name: 'B+',
       count: chart.bPlusCount || 1106,
-      color: '#FBBF24'
+      color: '#003CD3'
     },
     {
       name: 'B',
       count: chart.bCount || 492,
-      color: '#F59E0B'
+      color: '#003CD3'
     },
     {
       name: 'C+',
       count: chart.cPlusCount || 124,
-      color: '#EF4444'
+      color: '#003CD3'
     }
   ]
 
@@ -90,11 +90,11 @@ const LiveChart = () => {
   return (
     <div className={`relative overflow-hidden border rounded-xl shadow-sm p-4 w-full transition-colors duration-300 ${
       isDarkMode 
-        ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-        : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+        ? 'bg-dark-card border-dark-border' 
+        : 'bg-light-card border-light-border'
     }`}>
       {/* Minimal background decoration */}
-      <div className="absolute top-0 right-0 w-16 h-16 bg-accent-blue/5 rounded-full blur-xl"></div>
+      
       
       <div className="relative z-10">
         <div className="flex items-center justify-between mb-4">
@@ -106,7 +106,7 @@ const LiveChart = () => {
           <div className={`flex items-center space-x-2 text-xs transition-colors duration-300 ${
             isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
           }`}>
-            <Activity className="w-3 h-3 text-green-400 animate-pulse" />
+            <Activity className="w-3 h-3 text-primary animate-pulse" />
             <span>Live</span>
           </div>
         </div>
@@ -166,7 +166,7 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>A+ Rated</span>
-            <span className={`text-xs font-bold transition-all duration-300 text-green-400`}>
+            <span className={`text-xs font-bold transition-all duration-300 text-primary`}>
               {chart.aPlusCount || 295}
             </span>
           </div>
@@ -174,7 +174,7 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>A Rated</span>
-            <span className={`text-xs transition-all duration-300 text-green-300`}>
+            <span className={`text-xs transition-all duration-300 text-primary`}>
               {chart.aCount || 442}
             </span>
           </div>
@@ -182,7 +182,7 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>B+ Rated</span>
-            <span className={`text-xs transition-all duration-300 text-yellow-400`}>
+            <span className={`text-xs transition-all duration-300 text-primary`}>
               {chart.bPlusCount || 1106}
             </span>
           </div>
@@ -190,7 +190,7 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>B Rated</span>
-            <span className={`text-xs transition-all duration-300 text-orange-400`}>
+            <span className={`text-xs transition-all duration-300 text-primary`}>
               {chart.bCount || 492}
             </span>
           </div>
@@ -198,7 +198,7 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>C+ Rated</span>
-            <span className={`text-xs transition-all duration-300 text-red-400`}>
+            <span className={`text-xs transition-all duration-300 text-primary`}>
               {chart.cPlusCount || 124}
             </span>
           </div>

@@ -85,8 +85,8 @@ const OrderBook = () => {
     return (
       <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         <div className="flex items-center justify-center h-48">
           <RefreshCw className="w-8 h-8 text-accent-blue animate-spin" />
@@ -100,8 +100,8 @@ const OrderBook = () => {
     return (
       <div className={`relative overflow-hidden border rounded-xl shadow-lg p-4 transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         <div className="flex items-center justify-center h-48">
           <div className="text-center">
@@ -120,11 +120,11 @@ const OrderBook = () => {
       
       <div className={`relative overflow-hidden border rounded-xl shadow-sm p-4 transition-colors duration-300 ${
         isDarkMode 
-          ? 'bg-gradient-to-br from-dark-card to-dark-bg border-dark-border' 
-          : 'bg-gradient-to-br from-light-card to-light-bg border-light-border'
+          ? 'bg-dark-card border-dark-border' 
+          : 'bg-light-card border-light-border'
       }`}>
         {/* Minimal background decoration */}
-        <div className="absolute top-0 right-0 w-12 h-12 bg-accent-purple/5 rounded-full blur-lg"></div>
+        
         
         <div className="relative z-10">
           <div className="flex items-center justify-between mb-4">
