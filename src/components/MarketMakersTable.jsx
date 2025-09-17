@@ -831,23 +831,80 @@ const MarketMakersTable = () => {
           
           {/* Page Numbers */}
           <div className="flex items-center space-x-1">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-              <button
-                key={page}
-                onClick={() => goToPage(page)}
-                className={`px-3 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
-                  currentPage === page
-                    ? isDarkMode 
-                    ? 'bg-primary text-white shadow-lg shadow-primary/30'
-                      : 'bg-primary text-white shadow-lg shadow-primary/30'
-                    : isDarkMode
-                      ? 'text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 hover:shadow-md'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-primary/10 hover:to-indigo-50 hover:shadow-md'
-                }`}
-              >
-                {page}
-              </button>
-            ))}
+            {(() => {
+              const maxVisiblePages = 5;
+              const pages = [];
+              
+              if (totalPages <= maxVisiblePages) {
+                // Show all pages if total is less than or equal to max visible
+                for (let i = 1; i <= totalPages; i++) {
+                  pages.push(i);
+                }
+              } else {
+                // Smart pagination logic
+                if (currentPage <= 3) {
+                  // Show first pages + ellipsis + last page
+                  for (let i = 1; i <= 4; i++) {
+                    pages.push(i);
+                  }
+                  if (totalPages > 4) {
+                    pages.push('...');
+                    pages.push(totalPages);
+                  }
+                } else if (currentPage >= totalPages - 2) {
+                  // Show first page + ellipsis + last pages
+                  pages.push(1);
+                  if (totalPages > 4) {
+                    pages.push('...');
+                  }
+                  for (let i = totalPages - 3; i <= totalPages; i++) {
+                    pages.push(i);
+                  }
+                } else {
+                  // Show first + ellipsis + current-1, current, current+1 + ellipsis + last
+                  pages.push(1);
+                  pages.push('...');
+                  for (let i = currentPage - 1; i <= currentPage + 1; i++) {
+                    pages.push(i);
+                  }
+                  pages.push('...');
+                  pages.push(totalPages);
+                }
+              }
+              
+              return pages.map((page, index) => {
+                if (page === '...') {
+                  return (
+                    <span
+                      key={`ellipsis-${index}`}
+                      className={`px-3 py-2 text-sm transition-colors duration-300 ${
+                        isDarkMode ? 'text-gray-500' : 'text-gray-400'
+                      }`}
+                    >
+                      ...
+                    </span>
+                  );
+                }
+                
+                return (
+                  <button
+                    key={page}
+                    onClick={() => goToPage(page)}
+                    className={`px-3 py-2 rounded-xl text-sm font-semibold transition-all duration-300 ${
+                      currentPage === page
+                        ? isDarkMode 
+                        ? 'bg-primary text-white shadow-lg shadow-primary/30'
+                          : 'bg-primary text-white shadow-lg shadow-primary/30'
+                        : isDarkMode
+                          ? 'text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-slate-700 hover:to-slate-600 hover:shadow-md'
+                          : 'text-gray-600 hover:text-gray-900 hover:bg-gradient-to-r hover:from-primary/10 hover:to-indigo-50 hover:shadow-md'
+                    }`}
+                  >
+                    {page}
+                  </button>
+                );
+              });
+            })()}
           </div>
           
           {/* Next Button */}

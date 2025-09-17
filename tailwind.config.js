@@ -12,7 +12,7 @@ export default {
         primary: '#003CD3',
         // Dark theme colors (use gray-900 scale)
         'dark-bg': '#111827',
-        'dark-card': '#111827',
+        'dark-card': '#141929',
         'dark-border': '#1F2937',
         
         // Light theme colors
