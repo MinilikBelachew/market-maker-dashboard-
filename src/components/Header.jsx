@@ -72,7 +72,8 @@ const Header = () => {
            */}
           {/* Right Side Actions */}
           <div className="flex items-center space-x-2">
-            {/* Mobile Search Button */}
+            {/* Mobile Search Button - Commented Out */}
+            {/*
             <button
               onClick={() => setShowMobileSearch(!showMobileSearch)}
               className={`md:hidden p-2.5 transition-all duration-300 rounded-xl ${
@@ -83,6 +84,7 @@ const Header = () => {
             >
               <Search className="h-5 w-5" />
             </button>
+            */}
             
 
             {/* Theme Toggle */}
@@ -181,7 +183,8 @@ const Header = () => {
             </div>
             */}
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Commented Out */}
+            {/*
             <button
               onClick={() => setShowMobileMenu(!showMobileMenu)}
               className={`sm:hidden p-2.5 transition-all duration-300 rounded-xl ${
@@ -192,6 +195,7 @@ const Header = () => {
             >
               {showMobileMenu ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
+            */}
           </div>
         </div>
 
@@ -216,7 +220,8 @@ const Header = () => {
           </div>
         )}
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Commented Out */}
+        {/*
         {showMobileMenu && (
           <div className={`mobile-menu sm:hidden absolute top-full left-0 right-0 border-t shadow-lg ${
             isDarkMode 
@@ -224,8 +229,6 @@ const Header = () => {
               : 'bg-white border-gray-200'
           }`} style={{ zIndex: 999998 }}>
             <div className="p-4">
-              {/* Mobile User Profile - Commented Out */}
-              {/*
               <div className={`flex items-center space-x-3 p-3 rounded-lg mb-4 ${
                 isDarkMode ? 'bg-gray-700' : 'bg-gray-50'
               }`}>
@@ -245,9 +248,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
-              */}
 
-              {/* Mobile Menu Items */}
               <div className="space-y-2">
                 <button className={`w-full text-left px-4 py-3 rounded-lg transition-colors flex items-center space-x-3 ${
                   isDarkMode 
@@ -277,6 +278,7 @@ const Header = () => {
             </div>
           </div>
         )}
+        */}
       </div>
     </header>
   )
