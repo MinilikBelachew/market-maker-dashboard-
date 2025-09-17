@@ -32,8 +32,12 @@ const Alerts = () => {
       }`}>
         <div className="flex items-center justify-center h-48">
           <div className="text-center">
-            <AlertTriangle className="w-8 h-8 text-red-500 mx-auto mb-2" />
-            <p className="text-red-400">{error}</p>
+            <AlertTriangle className={`w-8 h-8 mx-auto mb-2 ${
+              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            }`} />
+            <p className={`${
+              isDarkMode ? 'text-gray-400' : 'text-gray-700'
+            }`}>{error}</p>
           </div>
         </div>
       </div>
@@ -45,10 +49,10 @@ const Alerts = () => {
     const configs = {
       'Balance Sheet Insolvency': {
         icon: DollarSign,
-        bgColor: 'bg-red-500/10',
-        borderColor: 'border-red-500/30',
-        textColor: 'text-red-400',
-        iconColor: 'text-red-500'
+        bgColor: isDarkMode ? 'bg-gray-500/10' : 'bg-gray-100',
+        borderColor: isDarkMode ? 'border-gray-500/30' : 'border-gray-300',
+        textColor: isDarkMode ? 'text-gray-300' : 'text-gray-700',
+        iconColor: isDarkMode ? 'text-gray-400' : 'text-gray-600'
       },
       'Communication Blackout': {
         icon: MessageSquare,
@@ -59,10 +63,10 @@ const Alerts = () => {
       },
       'Technology Failure': {
         icon: Cpu,
-        bgColor: 'bg-red-500/10',
-        borderColor: 'border-red-500/30',
-        textColor: 'text-red-400',
-        iconColor: 'text-red-500'
+        bgColor: isDarkMode ? 'bg-gray-500/10' : 'bg-gray-100',
+        borderColor: isDarkMode ? 'border-gray-500/30' : 'border-gray-300',
+        textColor: isDarkMode ? 'text-gray-300' : 'text-gray-700',
+        iconColor: isDarkMode ? 'text-gray-400' : 'text-gray-600'
       },
       'Poor Performance': {
         icon: Target,
@@ -73,17 +77,17 @@ const Alerts = () => {
       },
       'Regulatory Issues': {
         icon: Shield,
-        bgColor: 'bg-red-500/10',
-        borderColor: 'border-red-500/30',
-        textColor: 'text-red-400',
-        iconColor: 'text-red-500'
+        bgColor: isDarkMode ? 'bg-gray-500/10' : 'bg-gray-100',
+        borderColor: isDarkMode ? 'border-gray-500/30' : 'border-gray-300',
+        textColor: isDarkMode ? 'text-gray-300' : 'text-gray-700',
+        iconColor: isDarkMode ? 'text-gray-400' : 'text-gray-600'
       },
       'Security Breach': {
         icon: AlertCircle,
-        bgColor: 'bg-red-500/10',
-        borderColor: 'border-red-500/30',
-        textColor: 'text-red-400',
-        iconColor: 'text-red-500'
+        bgColor: isDarkMode ? 'bg-gray-500/10' : 'bg-gray-100',
+        borderColor: isDarkMode ? 'border-gray-500/30' : 'border-gray-300',
+        textColor: isDarkMode ? 'text-gray-300' : 'text-gray-700',
+        iconColor: isDarkMode ? 'text-gray-400' : 'text-gray-600'
       }
     }
     return configs[redFlagType] || {
@@ -100,10 +104,10 @@ const Alerts = () => {
     const configs = {
       error: {
         icon: AlertTriangle,
-        bgColor: 'bg-red-500/10',
-        borderColor: 'border-red-500/30',
-        textColor: 'text-red-400',
-        iconColor: 'text-red-500'
+        bgColor: isDarkMode ? 'bg-gray-500/10' : 'bg-gray-100',
+        borderColor: isDarkMode ? 'border-gray-500/30' : 'border-gray-300',
+        textColor: isDarkMode ? 'text-gray-300' : 'text-gray-700',
+        iconColor: isDarkMode ? 'text-gray-400' : 'text-gray-600'
       },
       warning: {
         icon: AlertTriangle,
@@ -157,7 +161,9 @@ const Alerts = () => {
           <div className={`flex items-center space-x-1 text-xs transition-colors duration-300 ${
             isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
           }`}>
-            <AlertTriangle className="w-3 h-3 text-red-400" />
+            <AlertTriangle className={`w-3 h-3 ${
+              isDarkMode ? 'text-gray-400' : 'text-gray-600'
+            }`} />
             <span>Live Monitoring</span>
           </div>
         </div>
@@ -174,8 +180,8 @@ const Alerts = () => {
                 key={alert.id}
                 className={`flex items-start space-x-3 p-3 rounded-lg border transition-all duration-300 ${
                   isDarkMode 
-                    ? 'bg-gray-700/20 border-gray-600/30 hover:bg-gray-700/30' 
-                    : 'bg-gray-100/80 border-gray-200/60 hover:bg-gray-100'
+                    ? 'bg-dark-border/30 border-dark-border/30 hover:bg-dark-border/30' 
+                    : 'bg-light-border/30 border-light-border/30 hover:bg-light-border/30'
                 }`}
               >
                 <div className="flex-shrink-0 mt-0.5">
@@ -191,7 +197,7 @@ const Alerts = () => {
                     </span>
                     <span className={`text-xs px-2 py-1 rounded-full transition-colors duration-300 ${
                       alert.severity === 'critical' 
-                        ? 'bg-red-500/20 text-red-400' 
+                        ? (isDarkMode ? 'bg-red-500/20 text-red-400' : 'bg-red-100 text-red-700')
                         : 'bg-orange-500/20 text-orange-400'
                     }`}>
                       {alert.severity?.toUpperCase() || alert.type?.toUpperCase()}

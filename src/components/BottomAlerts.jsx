@@ -97,8 +97,8 @@ const BottomAlerts = () => {
   // Get insight configuration
   const getInsightConfig = (type) => {
     const common = {
-      textColor: isDarkMode ? 'text-gray-300' : 'text-primary/80',
-      iconColor: isDarkMode ? 'text-gray-300' : 'text-primary/90'
+      textColor: isDarkMode ? 'text-gray-300' : 'text-gray-800',
+      iconColor: isDarkMode ? 'text-blue-400' : 'text-primary'
     }
     if (type === 'success') return { icon: Award, ...common }
     if (type === 'warning') return { icon: Star, ...common }
@@ -133,9 +133,17 @@ const BottomAlerts = () => {
   if (error) {
     return (
       <div className="mt-12">
-        <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-6 text-center">
-          <AlertTriangle className="w-8 h-8 text-red-500 mx-auto mb-2" />
-          <p className="text-red-400">{error}</p>
+        <div className={`rounded-xl p-6 text-center border ${
+          isDarkMode 
+            ? 'bg-red-500/10 border-red-500/30' 
+            : 'bg-red-50 border-red-200'
+        }`}>
+          <AlertTriangle className={`w-8 h-8 mx-auto mb-2 ${
+            isDarkMode ? 'text-red-500' : 'text-red-600'
+          }`} />
+          <p className={`${
+            isDarkMode ? 'text-red-400' : 'text-red-700'
+          }`}>{error}</p>
         </div>
       </div>
     )
@@ -144,18 +152,13 @@ const BottomAlerts = () => {
   const insights = getPerformanceInsights()
 
   return (
-    <div className="mt-12">
-      <div className="mb-6">
+    <div className="mt-8">
+      <div className="mb-8">
         <h2 className={`text-2xl font-bold transition-colors duration-300 ${
           isDarkMode ? 'text-white' : 'text-light-text'
         }`}>
-          Performance Insights
+          Performance insights and market maker trends analysis
         </h2>
-        <p className={`text-sm transition-colors duration-300 ${
-          isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
-        }`}>
-          Market maker performance trends and insights
-        </p>
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -200,11 +203,25 @@ const BottomAlerts = () => {
                         {item.name}
                       </span>
                       <span className={`text-xs px-2 py-1 rounded-full transition-colors duration-300 ${
-                        item.grade === 'A+' ? 'bg-green-500/20 text-green-400' :
-                        item.grade === 'A' ? 'bg-green-500/20 text-green-400' :
-                        item.grade === 'B+' ? 'bg-yellow-500/20 text-yellow-400' :
-                        item.grade === 'B' ? 'bg-orange-500/20 text-orange-400' :
-                        'bg-gray-500/20 text-gray-400'
+                        item.grade === 'A+' ? 
+                          (isDarkMode ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700') :
+                        item.grade === 'A' ? 
+                          (isDarkMode ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700') :
+                        item.grade === 'A-' ? 
+                          (isDarkMode ? 'bg-green-500/20 text-green-400' : 'bg-green-100 text-green-700') :
+                        item.grade === 'B+' ? 
+                          (isDarkMode ? 'bg-blue-500/20 text-blue-400' : 'bg-blue-100 text-blue-700') :
+                        item.grade === 'B' ? 
+                          (isDarkMode ? 'bg-yellow-500/20 text-yellow-400' : 'bg-yellow-100 text-yellow-700') :
+                        item.grade === 'B-' ? 
+                          (isDarkMode ? 'bg-yellow-500/20 text-yellow-400' : 'bg-yellow-100 text-yellow-700') :
+                        item.grade === 'C+' ? 
+                          (isDarkMode ? 'bg-orange-500/20 text-orange-400' : 'bg-orange-100 text-orange-700') :
+                        item.grade === 'C' ? 
+                          (isDarkMode ? 'bg-orange-500/20 text-orange-400' : 'bg-orange-100 text-orange-700') :
+                        item.grade === 'C-' ? 
+                          (isDarkMode ? 'bg-red-500/20 text-red-400' : 'bg-red-100 text-red-700') :
+                          (isDarkMode ? 'bg-gray-500/20 text-gray-400' : 'bg-gray-100 text-gray-700')
                       }`}>
                         {item.grade}
                       </span>
@@ -218,7 +235,9 @@ const BottomAlerts = () => {
                         </span>
                       )}
                       {item.improvement && (
-                        <span className="text-xs text-green-400 font-semibold">
+                        <span className={`text-xs font-semibold ${
+                          isDarkMode ? 'text-green-400' : 'text-green-600'
+                        }`}>
                           {item.improvement}
                         </span>
                       )}
