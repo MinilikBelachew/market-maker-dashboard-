@@ -166,7 +166,9 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>A+ Rated</span>
-            <span className={`text-xs font-bold transition-all duration-300 text-primary`}>
+            <span className={`text-xs font-bold transition-all duration-300 ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               {chart.aPlusCount || 295}
             </span>
           </div>
@@ -174,7 +176,9 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>A Rated</span>
-            <span className={`text-xs transition-all duration-300 text-primary`}>
+            <span className={`text-xs font-bold transition-all duration-300 ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               {chart.aCount || 442}
             </span>
           </div>
@@ -182,7 +186,9 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>B+ Rated</span>
-            <span className={`text-xs transition-all duration-300 text-primary`}>
+            <span className={`text-xs font-bold transition-all duration-300 ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               {chart.bPlusCount || 1106}
             </span>
           </div>
@@ -190,7 +196,9 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>B Rated</span>
-            <span className={`text-xs transition-all duration-300 text-primary`}>
+            <span className={`text-xs font-bold transition-all duration-300 ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               {chart.bCount || 492}
             </span>
           </div>
@@ -198,7 +206,9 @@ const LiveChart = () => {
             <span className={`text-xs transition-colors duration-300 ${
               isDarkMode ? 'text-gray-400' : 'text-light-text-secondary'
             }`}>C+ Rated</span>
-            <span className={`text-xs transition-all duration-300 text-primary`}>
+            <span className={`text-xs font-bold transition-all duration-300 ${
+              isDarkMode ? 'text-gray-300' : 'text-gray-700'
+            }`}>
               {chart.cPlusCount || 124}
             </span>
           </div>

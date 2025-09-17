@@ -19,13 +19,13 @@ const Trades = () => {
     return 'text-primary/60'
   }
 
-  // Helper function to get progress bar color (brand primary shades)
+  // Helper function to get progress bar color (brighter blue shades)
   const getProgressColor = (score) => {
-    if (score >= 0.9) return 'bg-primary'
-    if (score >= 0.8) return 'bg-primary/90'
-    if (score >= 0.7) return 'bg-primary/80'
-    if (score >= 0.6) return 'bg-primary/70'
-    return 'bg-primary/60'
+    if (score >= 0.9) return 'bg-blue-500'
+    if (score >= 0.8) return 'bg-blue-500/90'
+    if (score >= 0.7) return 'bg-blue-500/80'
+    if (score >= 0.6) return 'bg-blue-500/70'
+    return 'bg-blue-500/60'
   }
 
   // Helper function to get icon component
@@ -68,11 +68,11 @@ const Trades = () => {
   const currentMakerData = marketMakers.find(maker => maker.name === currentMaker) || marketMakers[0] || {}
   // Build pillar data from pillarScores if available
   const pillarData = currentMakerData.pillarScores ? [
-    { name: 'Reputation', icon: 'Shield', score: currentMakerData.pillarScores.reputation },
+    { name: 'Reputat...', icon: 'Shield', score: currentMakerData.pillarScores.reputation },
     { name: 'Balance Sheet', icon: 'DollarSign', score: currentMakerData.pillarScores.balanceSheet },
     { name: 'Comm...', icon: 'MessageSquare', score: currentMakerData.pillarScores.communication },
     { name: 'Pricing', icon: 'Target', score: currentMakerData.pillarScores.pricing },
-    { name: 'Technology', icon: 'Cpu', score: currentMakerData.pillarScores.technology },
+    { name: 'Tech...', icon: 'Cpu', score: currentMakerData.pillarScores.technology },
     { name: 'DeFi Integration', icon: 'Link', score: currentMakerData.pillarScores.defi }
   ] : []
 
@@ -204,14 +204,16 @@ const Trades = () => {
                     isDarkMode ? 'text-white' : 'text-light-text'
                   }`}>{pillar.name}</span>
                 </div>
-                <div className={`font-bold text-sm ${getPillarColor(pillar.score)}`}>
+                <div className={`font-bold text-sm ${
+                  isDarkMode ? 'text-gray-300' : getPillarColor(pillar.score)
+                }`}>
                   {(pillar.score * 100).toFixed(0)}%
                 </div>
               </div>
               
               {/* Progress bar */}
               <div className={`w-full h-1.5 rounded-full overflow-hidden transition-colors duration-300 ${
-                isDarkMode ? 'bg-dark-border/30' : 'bg-light-border/30'
+                isDarkMode ? 'bg-gray-600/50' : 'bg-gray-300/60'
               }`}>
                 <div
                   className={`h-full rounded-full transition-all duration-500 ${getProgressColor(pillar.score)}`}

@@ -172,7 +172,11 @@ const Alerts = () => {
             return (
               <div
                 key={alert.id}
-                className={`flex items-start space-x-3 ${config.bgColor} border ${config.borderColor} border-l-4 rounded-lg p-3 hover:bg-opacity-20 transition-all duration-300`}
+                className={`flex items-start space-x-3 p-3 rounded-lg border transition-all duration-300 ${
+                  isDarkMode 
+                    ? 'bg-gray-700/20 border-gray-600/30 hover:bg-gray-700/30' 
+                    : 'bg-gray-100/80 border-gray-200/60 hover:bg-gray-100'
+                }`}
               >
                 <div className="flex-shrink-0 mt-0.5">
                   <config.icon className={`w-4 h-4 ${config.iconColor}`} />
@@ -180,7 +184,9 @@ const Alerts = () => {
                 
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <span className={`${config.textColor} font-semibold text-sm`}>
+                    <span className={`font-semibold text-sm transition-colors duration-300 ${
+                      isDarkMode ? 'text-white' : 'text-light-text'
+                    }`}>
                       {alert.marketMaker || 'System'}
                     </span>
                     <span className={`text-xs px-2 py-1 rounded-full transition-colors duration-300 ${
@@ -192,7 +198,9 @@ const Alerts = () => {
                     </span>
                   </div>
                   
-                  <div className={`${config.textColor} font-medium text-xs mb-1`}>
+                  <div className={`font-medium text-xs mb-1 transition-colors duration-300 ${
+                    isDarkMode ? 'text-gray-300' : 'text-gray-700'
+                  }`}>
                     {alert.redFlagType || alert.message}
                   </div>
                   

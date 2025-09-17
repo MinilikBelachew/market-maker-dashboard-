@@ -97,8 +97,8 @@ const BottomAlerts = () => {
   // Get insight configuration
   const getInsightConfig = (type) => {
     const common = {
-      textColor: 'text-primary/80',
-      iconColor: 'text-primary/90'
+      textColor: isDarkMode ? 'text-gray-300' : 'text-primary/80',
+      iconColor: isDarkMode ? 'text-gray-300' : 'text-primary/90'
     }
     if (type === 'success') return { icon: Award, ...common }
     if (type === 'warning') return { icon: Star, ...common }
@@ -170,7 +170,9 @@ const BottomAlerts = () => {
             >
               <div className="flex items-center justify-between mb-3">
                 <div className="flex items-center space-x-3">
-                  <div className={`w-8 h-8 rounded-full bg-primary/5 border border-primary/20 flex items-center justify-center`}>
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    isDarkMode ? 'bg-gray-600/20 border border-gray-500/30' : 'bg-primary/5 border border-primary/20'
+                  }`}>
                     <config.icon className={`w-4 h-4 ${config.iconColor}`} />
                   </div>
                   <div>

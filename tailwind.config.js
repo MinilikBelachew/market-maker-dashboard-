@@ -10,6 +10,7 @@ export default {
       colors: {
         // Brand primary color
         primary: '#003CD3',
+        darkprimary: "#436DB3",
         // Dark theme colors (use gray-900 scale)
         'dark-bg': '#111827',
         'dark-card': '#141929',
