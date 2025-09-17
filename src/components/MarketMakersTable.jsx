@@ -458,7 +458,7 @@ const MarketMakersTable = () => {
   }
 
   return (
-    <div className={`relative overflow-hidden rounded-lg p-8 w-full transition-all duration-500 ${
+    <div className={`relative overflow-hidden rounded-lg p-4 sm:p-6 lg:p-8 w-full transition-all duration-500 ${
       isDarkMode 
         ? 'bg-dark-card border border-dark-border' 
         : 'bg-light-card border border-light-border'
@@ -467,7 +467,7 @@ const MarketMakersTable = () => {
       
       <div className="relative z-10 pl-2 sm:pl-0">
         <div className="flex items-center justify-between mb-6">
-          <h2 className={`text-2xl font-bold transition-colors duration-300 ${
+          <h2 className={`text-lg sm:text-xl lg:text-2xl font-bold transition-colors duration-300 ${
             isDarkMode ? 'text-white' : 'text-light-text'
           }`}>
             Market Makers
@@ -514,26 +514,26 @@ const MarketMakersTable = () => {
           </div>
         </div>
         
-        <div className={`rounded-2xl border backdrop-blur-sm transition-all duration-500 overflow-hidden ${
+        <div className={`rounded-xl sm:rounded-2xl border backdrop-blur-sm transition-all duration-500 overflow-hidden ${
           isDarkMode 
             ? 'border-slate-700/40 bg-slate-800/20' 
             : 'border-gray-300/40 bg-white/40'
         }`}>
-        <div className="w-full overflow-x-auto md:overflow-x-visible pl-2 sm:pl-0">
-        <table className="w-full table-fixed min-w-[800px] md:min-w-0">
+        <div className="w-full overflow-x-auto md:overflow-x-visible pl-1 sm:pl-0">
+        <table className="w-full table-fixed min-w-[500px] sm:min-w-[600px] md:min-w-0">
           <thead>
             <tr className={`border-b transition-all duration-300 ${
               isDarkMode 
                 ? 'bg-slate-800/60 border-slate-600/50' 
                 : 'bg-gray-50/80 border-gray-300/50'
             }`}>
-              <th className={`w-12 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-8 sm:w-12 text-center py-2 sm:py-3 px-1 sm:px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-white' : 'text-gray-800'
               }`}><Star /></th>
-              <th className={`w-32 text-left py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-24 sm:w-32 text-left py-2 sm:py-3 px-1 sm:px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-white' : 'text-gray-800'
               }`}>Name</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-16 sm:w-20 text-center py-2 sm:py-3 px-1 sm:px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-white' : 'text-gray-800'
               }`}>Rating</th>
               <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden sm:table-cell ${
@@ -554,7 +554,7 @@ const MarketMakersTable = () => {
               <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden md:table-cell ${
                 isDarkMode ? 'text-white' : 'text-gray-800'
               }`}>Balance</th>
-              <th className={`w-20 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
+              <th className={`w-16 sm:w-20 text-center py-2 sm:py-3 px-1 sm:px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 ${
                 isDarkMode ? 'text-white' : 'text-gray-800'
               }`}>Status</th>
               <th className={`w-16 text-center py-3 px-2 font-semibold text-xs uppercase tracking-wider transition-colors duration-300 hidden md:table-cell ${
@@ -570,7 +570,7 @@ const MarketMakersTable = () => {
                   : 'hover:bg-primary/5 border-gray-200/30 hover:border-gray-300/50'
               }`}>
                 {/* Favorite Column */}
-                <td className="py-3 px-2 text-center">
+                <td className="py-2 sm:py-3 px-1 sm:px-2 text-center">
                   <button
                     onClick={() => toggleFavorite(maker.name)}
                     className={`p-2 rounded-xl transition-all duration-300 ${
@@ -579,34 +579,34 @@ const MarketMakersTable = () => {
                         : 'text-gray-500 hover:text-yellow-400 hover:bg-gradient-to-br hover:from-yellow-400/10 hover:to-amber-500/10'
                     }`}
                   >
-                    <Star className={`w-4 h-4 transition-all duration-300 ${favorites.has(maker.name) ? 'fill-current' : ''}`} />
+                    <Star className={`w-3 h-3 sm:w-4 sm:h-4 transition-all duration-300 ${favorites.has(maker.name) ? 'fill-current' : ''}`} />
                   </button>
                 </td>
                 
                 {/* Market Maker Column (Profile + Name) */}
-                <td className="py-3 px-2">
+                <td className="py-2 sm:py-3 px-1 sm:px-2">
                   <button
                     onClick={() => setSelectedProfile(maker)}
-                    className={`flex items-center space-x-3 p-2 rounded-xl transition-all duration-300 w-full text-left ${
+                    className={`flex items-center space-x-2 sm:space-x-3 p-1 sm:p-2 rounded-xl transition-all duration-300 w-full text-left ${
                       isDarkMode 
                         ? 'text-gray-300 hover:text-white hover:bg-slate-700/50' 
                         : 'text-gray-700 hover:text-gray-900 hover:bg-primary/10'
                     }`}
                   >
-                    <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
+                    <div className={`w-6 h-6 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
                       isDarkMode ? 'bg-slate-700 group-hover:bg-slate-600' : 'bg-gray-100 group-hover:bg-white'
                     }`}>
-                      <maker.profile.avatar className={`w-4 h-4 transition-colors duration-300 ${
+                      <maker.profile.avatar className={`w-3 h-3 sm:w-4 sm:h-4 transition-colors duration-300 ${
                         isDarkMode ? 'text-gray-300 group-hover:text-white' : 'text-gray-600 group-hover:text-gray-800'
                       }`} />
                     </div>
                     <div className="flex flex-col min-w-0 flex-1">
-                      <span className={`font-semibold text-sm transition-colors duration-300 truncate ${
+                      <span className={`font-semibold text-xs sm:text-sm transition-colors duration-300 truncate ${
                         isDarkMode ? 'text-white group-hover:text-primary/80' : 'text-gray-900 group-hover:text-primary'
                       }`}>
                         {maker.name}
                       </span>
-                      <span className={`text-xs transition-colors duration-300 truncate ${
+                      <span className={`text-xs transition-colors duration-300 truncate hidden sm:block ${
                         isDarkMode ? 'text-gray-400 group-hover:text-gray-300' : 'text-gray-500 group-hover:text-gray-600'
                       }`}>
                         {maker.profile.location}
@@ -619,7 +619,7 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Rating Column */}
-                <td className={`py-3 px-2 text-center text-sm transition-colors duration-300 ${
+                <td className={`py-2 sm:py-3 px-1 sm:px-2 text-center text-xs sm:text-sm transition-colors duration-300 ${
                   isDarkMode ? 'text-white' : 'text-light-text'
                 }`}>
                   <div className="flex flex-col items-center space-y-1">
@@ -636,13 +636,13 @@ const MarketMakersTable = () => {
                     }`}>
                       {maker.grade}
                     </span>
-                    <div className={`text-xs transition-colors duration-300 ${
+                    <div className={`text-xs transition-colors duration-300 hidden sm:block ${
                       isDarkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                       {maker.honestMMScore || maker.score}/100
                     </div>
                     {maker.redFlags && maker.redFlags.length > 0 && (
-                      <div className={`text-xs ${
+                      <div className={`text-xs hidden sm:block ${
                         isDarkMode ? 'text-red-400' : 'text-red-600'
                       }`}>⚠️ {maker.redFlags.length} Red Flag{maker.redFlags.length > 1 ? 's' : ''}</div>
                     )}
@@ -819,7 +819,7 @@ const MarketMakersTable = () => {
                 </td>
                 
                 {/* Status Column */}
-                <td className="py-3 px-2 text-center">
+                <td className="py-2 sm:py-3 px-1 sm:px-2 text-center">
                   <StatusIndicator status={maker.status} />
                 </td>
                 
@@ -836,7 +836,7 @@ const MarketMakersTable = () => {
       </div>
       
       {/* Pagination */}
-      <div className="mt-6 flex items-center justify-between">
+      <div className="mt-4 sm:mt-6 flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-0">
         <div className={`text-xs transition-colors duration-300 pl-12 z-10 ${
           isDarkMode ? 'text-gray-200' : 'text-gray-900'
         }`}>

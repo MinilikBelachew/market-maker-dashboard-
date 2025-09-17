@@ -17,7 +17,7 @@ const AppContent = () => {
   return (
     <>
       <Header />
-      <main className="w-full px-8 py-8 ">
+      <main className="w-full px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-8">
         
         {/* Trading Pairs Grid - Under the table */}
         <div className="mt-2 ">

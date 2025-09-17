@@ -102,7 +102,8 @@ const Header = () => {
               )}
             </button>
 
-            {/* Desktop User Profile Dropdown */}
+            {/* Desktop User Profile Dropdown - Commented Out */}
+            {/*
             <div className="hidden sm:block relative">
               <button
                 ref={buttonRef}
@@ -117,7 +118,6 @@ const Header = () => {
                 <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${showUserMenu ? 'rotate-180' : ''}`} />
               </button>
 
-              {/* Desktop Dropdown Menu Portal */}
               {showUserMenu && createPortal(
                 <div className={`fixed w-64 rounded-lg shadow-xl border ${
                   isDarkMode 
@@ -179,6 +179,7 @@ const Header = () => {
                 document.body
               )}
             </div>
+            */}
 
             {/* Mobile Menu Button */}
             <button
@@ -223,7 +224,8 @@ const Header = () => {
               : 'bg-white border-gray-200'
           }`} style={{ zIndex: 999998 }}>
             <div className="p-4">
-              {/* Mobile User Profile */}
+              {/* Mobile User Profile - Commented Out */}
+              {/*
               <div className={`flex items-center space-x-3 p-3 rounded-lg mb-4 ${
                 isDarkMode ? 'bg-gray-700' : 'bg-gray-50'
               }`}>
@@ -243,6 +245,7 @@ const Header = () => {
                   </div>
                 </div>
               </div>
+              */}
 
               {/* Mobile Menu Items */}
               <div className="space-y-2">
